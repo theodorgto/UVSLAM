@@ -1,0 +1,23 @@
+services:
+  glim-container:
+    image: glim-jetson-6.2:latest
+    runtime: nvidia  # Enable NVIDIA GPU access
+    environment:
+      - DISPLAY=:0  # Forward X11
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - ROS_DISTRO=humble
+      - ROS_WORKSPACE=/root/ros2_ws 
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix  # X11 socket
+      - ./ros2_ws:/host_ros2_ws  # Mount ROS workspace (host ↔ container)
+      - ./data:/data  # Shared data directory
+    # command: tail -f /dev/null  # Keep container running
+    entrypoint: ["/entrypoint.sh"]
+    # command: ["bash", "-c", "tail -f /dev/null"]  # Keep container alive
+    command: ["tail", "-f", "/dev/null"]  # Passed as arguments to entrypoint.sh
+    networks:
+      - ros-network
+
+networks:
+  ros-network:  # Dedicated network for ROS nodes
+    driver: bridge

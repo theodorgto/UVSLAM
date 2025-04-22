@@ -1,4 +1,5 @@
-FROM nvcr.io/nvidia/l4t-jetpack:r36.4.0
+# FROM nvcr.io/nvidia/l4t-jetpack:r36.4.0
+FROM nvcr.io/nvidia/cuda:12.5.0-devel-ubuntu22.04
 
 # Set environment and locale
 ENV LANG=en_US.UTF-8 \

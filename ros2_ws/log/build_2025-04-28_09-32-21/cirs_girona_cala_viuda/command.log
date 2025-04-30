@@ -1,0 +1,2 @@
+Invoking command in '/host_ros2_ws/build/cirs_girona_cala_viuda': /usr/bin/cmake /host_ros2_ws/cirs_girona_cala_viuda -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/host_ros2_ws/install/cirs_girona_cala_viuda
+Invoked command in '/host_ros2_ws/build/cirs_girona_cala_viuda' returned '1': /usr/bin/cmake /host_ros2_ws/cirs_girona_cala_viuda -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/host_ros2_ws/install/cirs_girona_cala_viuda

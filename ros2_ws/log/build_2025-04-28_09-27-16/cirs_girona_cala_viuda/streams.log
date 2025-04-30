@@ -1,0 +1,41 @@
+[0.023s] Invoking command in '/host_ros2_ws/build/cirs_girona_cala_viuda': /usr/bin/cmake /host_ros2_ws/cirs_girona_cala_viuda -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/host_ros2_ws/install/cirs_girona_cala_viuda
+[0.069s] [0mCMake Deprecation Warning at CMakeLists.txt:1 (cmake_minimum_required):
+[0.069s]   Compatibility with CMake < 2.8.12 will be removed from a future version of
+[0.069s]   CMake.
+[0.069s] 
+[0.070s]   Update the VERSION argument <min> value or use a ...<max> suffix to tell
+[0.070s]   CMake that the project does not need compatibility with older versions.
+[0.070s] 
+[0.070s] [0m
+[0.350s] -- The C compiler identification is GNU 11.4.0
+[0.631s] -- The CXX compiler identification is GNU 11.4.0
+[0.660s] -- Detecting C compiler ABI info
+[0.804s] -- Detecting C compiler ABI info - done
+[0.833s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.834s] -- Detecting C compile features
+[0.837s] -- Detecting C compile features - done
+[0.854s] -- Detecting CXX compiler ABI info
+[1.023s] -- Detecting CXX compiler ABI info - done
+[1.052s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.053s] -- Detecting CXX compile features
+[1.055s] -- Detecting CXX compile features - done
+[1.091s] [31mCMake Error at CMakeLists.txt:7 (find_package):
+[1.091s]   By not providing "Findcatkin.cmake" in CMAKE_MODULE_PATH this project has
+[1.091s]   asked CMake to find a package configuration file provided by "catkin", but
+[1.091s]   CMake did not find one.
+[1.092s] 
+[1.092s]   Could not find a package configuration file provided by "catkin" with any
+[1.092s]   of the following names:
+[1.092s] 
+[1.092s]     catkinConfig.cmake
+[1.092s]     catkin-config.cmake
+[1.093s] 
+[1.093s]   Add the installation prefix of "catkin" to CMAKE_PREFIX_PATH or set
+[1.093s]   "catkin_DIR" to a directory containing one of the above files.  If "catkin"
+[1.093s]   provides a separate development package or SDK, be sure it has been
+[1.093s]   installed.
+[1.093s] 
+[1.094s] [0m
+[1.094s] -- Configuring incomplete, errors occurred!
+[1.094s] See also "/host_ros2_ws/build/cirs_girona_cala_viuda/CMakeFiles/CMakeOutput.log".
+[1.107s] Invoked command in '/host_ros2_ws/build/cirs_girona_cala_viuda' returned '1': /usr/bin/cmake /host_ros2_ws/cirs_girona_cala_viuda -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/host_ros2_ws/install/cirs_girona_cala_viuda

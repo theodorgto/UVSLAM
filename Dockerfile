@@ -55,6 +55,11 @@ RUN apt-get update && apt-get install -y \
     ros-humble-rqt-common-plugins \
     python3-colcon-common-extensions \
     python3-rosdep && \
+    ## ---- RVIZ2 section ----
+    ros-${ROS_DISTRO}-rviz2 \
+    ros-${ROS_DISTRO}-rviz-common \
+    ros-${ROS_DISTRO}-rviz-default-plugins && \
+    ## ---- END RVIZ2 section ----
     # Clean up apt cache
     rm -rf /var/lib/apt/lists/*
 

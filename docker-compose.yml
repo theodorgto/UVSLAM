@@ -9,13 +9,13 @@ services:
       - ROS_WORKSPACE=/root/ros2_ws
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
-      - ./ros2_ws:/host_ros2_ws
-      - ./data:/data
+      - /mnt/nvme/ros2_ws:/nvme_ros2_ws
+      - /mnt/nvme/data:/data
     entrypoint: ["/entrypoint.sh"]
     command: ["tail", "-f", "/dev/null"]
     networks:
       - ros-network  # Connects to this network
 
-networks:  # ⚠️ Define the network here (uncommented and properly indented)
+networks:  # Define the network here (uncommented and properly indented)
   ros-network:
     driver: bridge

@@ -35,6 +35,7 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
     libeigen3-dev && \
+    vim \
     # Clean up apt cache
     rm -rf /var/lib/apt/lists/*
 

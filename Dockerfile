@@ -5,6 +5,7 @@ FROM nvcr.io/nvidia/cuda:12.5.0-devel-ubuntu22.04
 ENV LANG=en_US.UTF-8 \
     ROS_DISTRO=humble \
     ROS_WORKSPACE=/root/ros2_ws \
+    NVME_WORKSPACE=/nvme_ros2_ws \
     DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
@@ -23,6 +24,7 @@ RUN apt-get update && apt-get install -y \
 RUN apt-get update && apt-get install -y \
     build-essential \
     cmake \
+    vim \
     git \
     gpg \
     libomp-dev \
@@ -35,7 +37,6 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
     libeigen3-dev && \
-    vim \
     # Clean up apt cache
     rm -rf /var/lib/apt/lists/*
 
@@ -55,12 +56,17 @@ RUN apt-get update && apt-get install -y \
     ros-humble-rqt-graph \
     ros-humble-rqt-common-plugins \
     python3-colcon-common-extensions \
-    python3-rosdep && \
-    ## ---- RVIZ2 section ----
+    python3-rosdep \
+    python3-open3d \
+    zenity \
+    && \
+    rm -rf /var/lib/apt/lists/*
+
+# install RVIZ2 
+RUN apt-get update && apt-get install -y \
     ros-${ROS_DISTRO}-rviz2 \
     ros-${ROS_DISTRO}-rviz-common \
     ros-${ROS_DISTRO}-rviz-default-plugins && \
-    ## ---- END RVIZ2 section ----
     # Clean up apt cache
     rm -rf /var/lib/apt/lists/*
 
@@ -133,10 +139,15 @@ ENV PATH=/opt/conda/bin:$PATH
 # --- ADDED SECTION: Add ROS Aliases ---
 # Add aliases for sourcing ROS setup files to /root/.bashrc
 RUN echo -e "\n# Custom ROS Aliases added by Dockerfile" >> /root/.bashrc && \
-    echo "alias sr1='source /opt/ros/${ROS_DISTRO}/setup.bash'" >> /root/.bashrc && \
+    echo "alias sr='source /opt/ros/${ROS_DISTRO}/setup.bash'" >> /root/.bashrc && \
     echo "alias sws='source ${ROS_WORKSPACE}/install/setup.bash'" >> /root/.bashrc && \
-    echo "alias source_ros1='source /opt/ros/${ROS_DISTRO}/setup.bash'" >> /root/.bashrc && \
-    echo "alias source_ws='source ${ROS_WORKSPACE}/install/setup.bash'" >> /root/.bashrc
+    echo "alias sn='source ${NVME_WORKSPACE}/install/setup.bash'" >> /root/.bashrc && \
+    echo "alias source_nvme_ws='source ${NVME_WORKSPACE}/install/setup.bash'" >> /root/.bashrc && \
+    echo "alias source_ros='source /opt/ros/${ROS_DISTRO}/setup.bash'" >> /root/.bashrc && \
+    echo "alias source_ws='source ${ROS_WORKSPACE}/install/setup.bash'" >> /root/.bashrc && \
+    echo "alias source_all='source /opt/ros/${ROS_DISTRO}/setup.bash && source ${ROS_WORKSPACE}/install/setup.bash && source ${NVME_WORKSPACE}/install/setup.bash'" >> /root/.bashrc && \
+    echo "alias build_ws ='cd ${ROS_WORKSPACE} && colcon build && source ${ROS_WORKSPACE}/install/setup.bash'" >> /root/.bashrc && \
+    echo "alias build_nvme_ws ='cd ${NVME_WORKSPACE} && colcon build && source ${NVME_WORKSPACE}/install/setup.bash'" >> /root/.bashrc
 # --- END ADDED SECTION ---
 
 # Finalize

@@ -1,6 +1,6 @@
 services:
   glim-container:
-    image: uvslam:glim
+    image: uvslam:glim_latest
     runtime: nvidia
     environment:
       - DISPLAY=:0
